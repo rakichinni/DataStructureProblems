@@ -36,11 +36,11 @@ int quick_search(int start, int end)
     {
         return end;
     }
-    else if (d[mid] > ele)
+    else if (d[mid] < ele)
     {
         return quick_search(mid+1, end);
     }
-    else if (d[mid] < ele)
+    else if (d[mid] > ele)
     {
         return quick_search(start,mid-1);
     }
