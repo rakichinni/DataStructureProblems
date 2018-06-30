@@ -15,6 +15,15 @@ int quick_search(int start, int end)
     {
         return -1;
     }
+    if ( d[start] > ele)
+    {
+        return -1;
+    }
+    if ( d[end] < ele)
+    {
+        return -1;
+    }
+
     if (d[mid] == ele)
     {
         return mid;
