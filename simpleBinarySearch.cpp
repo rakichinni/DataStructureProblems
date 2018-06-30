@@ -11,7 +11,7 @@ int quick_search(int start, int end)
 
     int mid = (end - start)/2;
 
-    if (start == end || mid == 0)
+    /*if (start == end || mid == 0)
     {
         return -1;
     }
@@ -22,28 +22,24 @@ int quick_search(int start, int end)
     if ( d[end] < ele)
     {
         return -1;
-    }
+    }*/
 
-    if (d[mid] == ele)
+    if (start <= end)
     {
-        return mid;
+        if (d[mid] == ele)
+        {
+            return mid;
+        }
+        else if (d[mid] < ele)
+        {
+            return quick_search(mid+1, end);
+        }
+        else if (d[mid] > ele)
+        {
+            return quick_search(start,mid-1);
+        }
     }
-    else if (d[start] == ele)
-    {
-        return start;
-    }
-    else if (d[end] == ele)
-    {
-        return end;
-    }
-    else if (d[mid] < ele)
-    {
-        return quick_search(mid+1, end);
-    }
-    else if (d[mid] > ele)
-    {
-        return quick_search(start,mid-1);
-    }
+    return -1;
 }
 
 int main()
